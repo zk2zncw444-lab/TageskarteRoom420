@@ -5,7 +5,7 @@
 <title>Tageskarte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F7F2E7;
@@ -74,7 +74,7 @@
     position:relative;
     background:var(--paper);
     color:var(--ink);
-    padding:64px 52px 56px;
+    padding:64px 52px 44px;
     box-shadow:0 40px 70px rgba(0,0,0,0.5), 0 2px 0 rgba(0,0,0,0.06);
     border:1px solid rgba(33,26,19,0.08);
   }
@@ -91,6 +91,15 @@
     font-size:2.5rem;
     letter-spacing:0.09em;
   }
+  .flourish{
+    display:block;
+    margin:6px auto 0;
+    width:260px;
+    max-width:70%;
+    height:auto;
+    color:var(--ink);
+    opacity:0.85;
+  }
   .date{
     margin-top:12px;
     font-family:-apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -99,7 +108,28 @@
     color:var(--ink-soft);
   }
 
-  .dish{margin-bottom:32px;}
+  .section{margin-bottom:40px;}
+  .section:last-of-type{margin-bottom:0;}
+  .section-title{
+    margin:0 0 22px;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.08rem;
+    letter-spacing:0.04em;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    white-space:nowrap;
+  }
+  .section-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+
+  .dish{margin-bottom:26px;}
   .dish:last-child{margin-bottom:0;}
   .dish-title{
     margin:0 0 8px;
@@ -116,6 +146,18 @@
     color:var(--ink-soft);
     max-width:62ch;
   }
+  .plain .dish{margin-bottom:12px;}
+  .plain .dish-title{margin-bottom:0;}
+
+  .footer{
+    margin-top:46px;
+    text-align:center;
+    font-style:italic;
+    font-size:0.92rem;
+    letter-spacing:0.14em;
+    color:var(--ink-soft);
+    opacity:0.45;
+  }
 
   @media print{
     body{background:var(--paper); padding:0; min-height:0;}
@@ -125,8 +167,9 @@
   }
 
   @media (max-width:480px){
-    .card{padding:48px 26px 44px;}
+    .card{padding:48px 26px 36px;}
     h1{font-size:2rem;}
+    .section-title{white-space:normal;}
   }
 </style>
 </head>
@@ -136,38 +179,74 @@
     <div class="card">
       <div class="header">
         <h1>Tageskarte</h1>
+        <svg class="flourish" viewBox="0 0 300 26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+            <path d="M150 13 C 128 13, 116 6, 96 6 C 80 6, 74 15, 84 18 C 92 20.5, 98 15, 92 11 C 84 5.5, 66 6.5, 52 10"/>
+            <path d="M52 10 C 42 12.5, 34 15, 22 13"/>
+            <path d="M22 13 C 16 11.8, 12 13.4, 10 15"/>
+            <path d="M150 13 C 172 13, 184 6, 204 6 C 220 6, 226 15, 216 18 C 208 20.5, 202 15, 208 11 C 216 5.5, 234 6.5, 248 10"/>
+            <path d="M248 10 C 258 12.5, 266 15, 278 13"/>
+            <path d="M278 13 C 284 11.8, 288 13.4, 290 15"/>
+          </g>
+          <g fill="currentColor">
+            <path d="M150 7.5 L155 13 L150 18.5 L145 13 Z"/>
+            <circle cx="137" cy="13" r="1.4"/>
+            <circle cx="163" cy="13" r="1.4"/>
+          </g>
+        </svg>
         <div class="date">Freitag, 18. September 2026</div>
       </div>
 
-      <div class="dish">
-        <p class="dish-title">Triple Choc knusper Müsli</p>
-        <p class="dish-desc">Knusprige Müsli-Mischung mit edler Zartbitter-, Vollmilch- und weißer Schokolade. Serviert mit frischer Milch aus eigener Rinderzucht – der perfekte süße Snack für zwischendurch oder späte Cravings.</p>
+      <div class="section">
+        <h2 class="section-title">Snacks, Cravings, Munchies etc.</h2>
+
+        <div class="dish">
+          <p class="dish-title">Triple Choc knusper Müsli</p>
+          <p class="dish-desc">Knusprige Müsli-Mischung mit edler Zartbitter-, Vollmilch- und weißer Schokolade. Serviert mit frischer Milch aus eigener Rinderzucht – der perfekte süße Snack für zwischendurch oder späte Cravings.</p>
+        </div>
+
+        <div class="dish">
+          <p class="dish-title">Bayerische Maultaschen</p>
+          <p class="dish-desc">Leberkasmaultaschen scharf angebraten mit karamelisierten Schalotten serviert im Pfandl.</p>
+        </div>
       </div>
 
-      <div class="dish">
-        <p class="dish-title">Bolognese Bianco</p>
-        <p class="dish-desc">Die helle Variation des Klassikers: Saftiges Hackfleisch, feines Wurzelgemüse und handverlesene Waldpilze, sanft eingekocht in einer cremigen Kräuter-Rahm-Soße.</p>
+      <div class="section">
+        <h2 class="section-title">Bolognese</h2>
+
+        <div class="dish">
+          <p class="dish-title">Bolognese Bianco</p>
+          <p class="dish-desc">Die helle Variation des Klassikers: Saftiges Hackfleisch, feines Wurzelgemüse und handverlesene Waldpilze, sanft eingekocht in einer cremigen Kräuter-Rahm-Soße.</p>
+        </div>
+
+        <div class="dish">
+          <p class="dish-title">Bolognese Gratin</p>
+          <p class="dish-desc">Penne Rigate in kräftigem Rinder-Tomaten-Ragout, im Ofen mit einer goldbraunen Käsekruste vollendet.</p>
+        </div>
       </div>
 
-      <div class="dish">
-        <p class="dish-title">Bolognese Gratin</p>
-        <p class="dish-desc">Penne Rigate in kräftigem Rinder-Tomaten-Ragout, im Ofen mit einer goldbraunen Käsekruste vollendet.</p>
+      <div class="section">
+        <h2 class="section-title">Vegetarisch</h2>
+
+        <div class="dish">
+          <p class="dish-title">Veganes Cordon Bleu mit Kartoffelgratin</p>
+          <p class="dish-desc">Kross paniertes pflanzliches Cordon Bleu mit würzig-schmelzender Füllung, serviert an saftig gebackenem Kartoffelgratin mit feiner Kräuternote.</p>
+        </div>
       </div>
 
-      <div class="dish">
-        <p class="dish-title">Veganes Cordon Bleu mit Kartoffelgratin</p>
-        <p class="dish-desc">Kross paniertes pflanzliches Cordon Bleu mit würzig-schmelzender Füllung, serviert an saftig gebackenem Kartoffelgratin mit feiner Kräuternote.</p>
+      <div class="section plain">
+        <h2 class="section-title">Nach Art des Hauses – say no more</h2>
+
+        <div class="dish">
+          <p class="dish-title">Ofenkartoffeln mit Hackfleisch</p>
+        </div>
+
+        <div class="dish">
+          <p class="dish-title">Pasta in Tomaten-Sahne-Soße mit Hackfleisch</p>
+        </div>
       </div>
 
-      <div class="dish">
-        <p class="dish-title">Ofenkartoffeln mit Hackfleisch</p>
-        <p class="dish-desc">Zarte Kartoffelscheiben aus der Auflaufform, geschichtet mit herzhaftem Hackfleisch in feiner Sahnesoße und mit würzigem Käse goldbraun überbacken.</p>
-      </div>
-
-      <div class="dish">
-        <p class="dish-title">Pasta in Tomaten-Sahne-Soße mit Hackfleisch</p>
-        <p class="dish-desc">Wahlweise Penne oder Spaghetti in einer samtigen Soße aus karamellisiertem Tomatenmark und Sahne, kombiniert mit saftigem Hackfleisch.</p>
-      </div>
+      <div class="footer">Since 2021</div>
     </div>
   </div>
 </body>
